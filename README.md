@@ -1,4 +1,4 @@
-# Replicon-eval-SyntaxError-newline-patcher-user-script
+# Fix Replicon "SyntaxError" in chrome
 use with tampermonkey for chrome, or another greasemonkey script extension
 
 1.	Install TamperMonkey for chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en
