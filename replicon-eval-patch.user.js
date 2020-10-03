@@ -7,6 +7,7 @@
 // @match        https://www.projecttimecapture.com/*
 // @run_at       document_start
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 // This is the full error copy-pasted from chrome:
