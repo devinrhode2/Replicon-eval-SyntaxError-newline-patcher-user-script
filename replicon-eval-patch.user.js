@@ -8,6 +8,9 @@
 // @run_at       document_start
 // @grant        none
 // @license      MIT
+// @updateURL https://openuserjs.org/meta/devinrhode2/Replicon_eval_SyntaxError_newline_patcher.meta.js
+// @downloadURL https://openuserjs.org/install/devinrhode2/Replicon_eval_SyntaxError_newline_patcher.user.js
+// @copyright 2020, devinrhode2 (https://openuserjs.org/users/devinrhode2)
 // ==/UserScript==
 
 /* This is the full error from chrome:
