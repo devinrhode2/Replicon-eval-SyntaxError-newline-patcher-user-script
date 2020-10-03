@@ -10,15 +10,20 @@
 // @license      MIT
 // ==/UserScript==
 
-// This is the full error copy-pasted from chrome:
-/*
-Uncaught SyntaxError: Invalid or unexpected token                        VM215822:1
+/* This is the full error from chrome:
+Uncaught SyntaxError: Invalid or unexpected token
     at eval (<anonymous>)
     at jsLoaderObject_loadFrom [as loadFrom] (rt.dll?nextpage=main:92)
     at rduration.html:14
-// Clicking the little triangle to reveal other stack frames shows the same call sites:
-jsLoaderObject_loadFrom @ rt.dll?nextpage=main:92
-(anonymous) @ rduration.html:14
+
+When you load this page: https://www.projecttimecapture.com/cgi/rt.dll?nextpage=main
+You should not see it get stuck too long at "Generating Timesheet..."
+It is expected to see a bunch of warnings like this in the console:
+
+    newline replaced js failed! ReferenceError: d is not defined:
+    js: d.level1id=this.level1id
+
+There may be some issue present due to these warnings being generated, but I haven't really checked everything works inside this app yet.
 */
 
 // This site has a ton of iframes, which is why the url was being logged:
@@ -43,28 +48,3 @@ window.eval = function (jsStr) {
     }
   }
 };
-
-// if you see all this logged in the console when on this page:
-// Then it should mostly work... I haven't really clicked around much, so if there's an issue present in chrome that's not present in safari/IE, feel free to file an issue
-// (but I will tell you now, I'm not fixing it if it doesn't affect my time entry workflow)
-/* expected logs on page:
-userscript.html?name=Replicon%20eval%20SyntaxError%20newline%20patcher.user.js&id=cad71d13-16fe-4f1a-a37c-68d10f6f0e5d:41
-newline replaced js failed! ReferenceError: d is not defined:
-window.eval @ userscript.html?name=Replicon%20eval%20SyntaxError%20newline%20patcher.user.js&id=cad71d13-16fe-4f1a-a37c-68d10f6f0e5d:41
-eval @ VM226351:5
-eval @ VM226521:5
-eval @ VM231450:59
-eval @ VM232968:3
-eval @ VM232964:3
-Load @ rt.dll?nextpage=timesheet/timesheet&_User.Preference.Temp.Timesheet.CurrentDate,October 2, 2020&assign=_User.Preference.Temp.Timesheet.TimesheetUserId,89229852&assign=_User.Preference.Temp.Timesheet.TimesheetView,0&assign=_User.Preference.Temp.Timesheet.ReturnPage,&assign=goToDay,1&assign=SideMenuLoading,1&assign=updateCurrentDate,1:1194
-retrieveJs @ rt.dll?nextpage=timesheet/timesheet&_User.Preference.Temp.Timesheet.CurrentDate,October 2, 2020&assign=_User.Preference.Temp.Timesheet.TimesheetUserId,89229852&assign=_User.Preference.Temp.Timesheet.TimesheetView,0&assign=_User.Preference.Temp.Timesheet.ReturnPage,&assign=goToDay,1&assign=SideMenuLoading,1&assign=updateCurrentDate,1:72
-(anonymous) @ VM233706:1
-setTimeout (async)
-retrieveJs @ rt.dll?nextpage=timesheet/timesheet&_User.Preference.Temp.Timesheet.CurrentDate,October 2, 2020&assign=_User.Preference.Temp.Timesheet.TimesheetUserId,89229852&assign=_User.Preference.Temp.Timesheet.TimesheetView,0&assign=_User.Preference.Temp.Timesheet.ReturnPage,&assign=goToDay,1&assign=SideMenuLoading,1&assign=updateCurrentDate,1:70
-(anonymous) @ VM232945:1
-setTimeout (async)
-retrieveJs @ rt.dll?nextpage=timesheet/timesheet&_User.Preference.Temp.Timesheet.CurrentDate,October 2, 2020&assign=_User.Preference.Temp.Timesheet.TimesheetUserId,89229852&assign=_User.Preference.Temp.Timesheet.TimesheetView,0&assign=_User.Preference.Temp.Timesheet.ReturnPage,&assign=goToDay,1&assign=SideMenuLoading,1&assign=updateCurrentDate,1:70
-(anonymous) @ VM232434:1
-setTimeout (async)
-...
-*/
