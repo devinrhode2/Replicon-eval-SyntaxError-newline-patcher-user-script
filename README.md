@@ -1,8 +1,6 @@
 # Replicon-eval-SyntaxError-newline-patcher-user-script
 use with tampermonkey for chrome, or another greasemonkey script extension
 
-Copy paste code from the one .user.js file above. 
-
 1.	Install TamperMonkey for chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en
 2.	Click the blue "Install" button on this page: https://openuserjs.org/scripts/devinrhode2/Replicon_eval_SyntaxError_newline_patcher
 3.	Security check: notice none of the colored code has any urls, it's not pulling anything extra in or sending anything out: https://cln.sh/sinIiB
